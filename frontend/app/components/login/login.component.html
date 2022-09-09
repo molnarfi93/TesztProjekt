@@ -1,0 +1,20 @@
+<table>
+    <tr>
+        <div class="header">Bejelentkezés</div>
+    </tr>
+    <tr>
+		<div class="panel">
+			<form [formGroup]="loginForm" (ngSubmit)="login()">
+				Email: <input type="text" required formControlName="email"><br />
+				<div class="error" *ngIf="loginForm.email.errors?.required">Email kitöltendö!</div>
+				<br />
+				Jelszó: <input type="text" required formControlName="jelszo"><br />
+				<div class="error" *ngIf="loginForm.jelszo.errors?.required">Jelszó kitöltendö!</div>
+				<br />
+				<br />
+				<button type="submit" [disabled]="!loginForm.valid" class="ok">Bejelentkezés</button><br />
+			</form>
+			<br />
+        </div>
+    </tr>
+</table>

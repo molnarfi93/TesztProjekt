@@ -1,0 +1,38 @@
+<table>
+    <tr>
+        <div class="header">Tranzakciók</div>
+    </tr>
+    <tr>
+		<div class="panel">
+			<td style="width: 100px">Személyi szám: {{felhasznalo.szig_szam}}</td>
+			<td style="width: 100px">Név: {{felhasznalo.nev}}</td>
+			<td style="width: 100px">Számlaszám: {{felhasznalo.szamla.szam}}</td>
+			<td style="width: 100px">Email: {{felhasznalo.email}}</td>
+		</div>
+        <div class="panel">
+			<td style="width: 100px">Szám</td>
+			<td style="width: 100px">Feladó</td>
+			<td style="width: 100px">Címzett</td>
+			<td style="width: 100px">Összeg</td>
+			<td style="width: 100px">Dátum</td>
+			<td style="width: 100px">Közlemény</td>
+			<td style="width: 100px">Státusz</td>
+			<div class="table" *ngFor="let tranzakcio of tranzakciok; let i = index">
+				<td style="width: 100px">{{tranzakcio.szam}}</td>
+				<td style="width: 100px">{{tranzakcio.felado.szamla.szam}}</td>
+				<td style="width: 100px">{{tranzakcio.cimzett.szamla.szam}}</td>
+				<td style="width: 100px">{{tranzakcio.osszeg}}</td>
+				<td style="width: 100px">{{tranzakcio.datum}}</td>
+				<td style="width: 100px">{{tranzakcio.kozlemeny}}</td>
+				<td style="width: 100px">{{tranzakcio.statusz}}</td>
+				<td><button (click)="deleteTranzakcio(tranzakcio.szam)">Törlés</button></td>
+			</div>	
+		<br />
+		<br />
+		<button (click)="loadFelhasznalok()">Vissza</button>
+		<br />
+		<br />
+		<br />
+		</div>	
+    </tr>
+</table>

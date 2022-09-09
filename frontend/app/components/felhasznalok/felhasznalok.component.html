@@ -1,0 +1,33 @@
+<table>
+    <tr>
+        <div class="header">Felhasználók</div>
+    </tr>
+    <tr>
+		<div class="panel">
+			<form [formGroup]="felhasznaloForm" (ngSubmit)="getFelhasznalo()">
+				Email/Számlaszám: <input type="text" required formControlName="felhasznalo"><br />
+				<div class="error" *ngIf="felhasznaloForm.felhasznalo.errors?.required">Mezö kitöltendö!</div>
+				<br />
+				<br />
+				<button type="submit" [disabled]="!felhasznaloForm.valid" class="ok">Keresés</button><br />
+			</form>
+			<br />
+        </div>
+        <div class="panel">
+				<td style="width: 100px">Személyi szám</td>
+				<td style="width: 100px">Név</td>
+				<td style="width: 100px">Számlaszám</td><br />
+				<td style="width: 100px">Email</td><br />
+			<div class="table" *ngFor="let felhasznalo of felhasznalok; let i = index">
+				<td style="width: 100px">{{felhasznalo.szig_szam}}</td>
+				<td style="width: 100px">{{felhasznalo.nev}}</td>
+				<td style="width: 100px" >{{felhasznalo.szamla.szam}}</td>
+				<td style="width: 100px">{{felhasznalo.email}}</td>
+				<td><button (click)="loadTranzakciok(felhasznalo.szamla.szam)"></button></td>
+			</div>	
+		<br />
+		<br />
+		<br />
+		</div>	
+    </tr>
+</table>

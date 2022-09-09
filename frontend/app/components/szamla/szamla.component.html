@@ -1,0 +1,29 @@
+<table>
+    <tr>
+        <div class="header">Számla adatok</div>
+    </tr>
+    <tr> 
+        <div class="panel">
+				<td style="width: 100px">Szám: {{szamla.szam}}</td><br />
+				<td style="width: 100px">Egyenleg: {{szamla.egyenleg}}</td><br />
+				<td style="width: 100px">Létrehozás: {{szamla.letrehozas}}</td><br />
+				<td style="width: 100px">Tranzakciók</td><br />
+				<div class="table" *ngFor="let tranzakcio of szamla.tranzakciok; let i = index">
+					<td style="width: 100px">Szám: {{tranzakcio.szam}}</td>
+					<td style="width: 100px">Feladó: {{tranzakcio.felado.szamla.szam}}</td>
+					<td style="width: 100px">Címzett: {{tranzakcio.cimzett.szamla.szam}}</td>
+					<td style="width: 100px">Összeg: {{tranzakcio.osszeg}}</td>
+					<td style="width: 100px">Dátum: {{tranzakcio.datum}}</td>
+					<td style="width: 100px">Közlemény: {{tranzakcio.kozlemeny}}</td>
+					<td style="width: 100px">Státusz: {{tranzakcio.statusz}}</td>
+				</div>
+		</div>
+		<br />
+		<br />
+		<button (click)="loadAddTranzakcio()">Új tranzakció</button>
+		<br />
+		<br />
+		<br />
+		</div>	
+    </tr>
+</table>

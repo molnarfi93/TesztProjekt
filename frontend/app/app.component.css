@@ -1,0 +1,33 @@
+.header{
+           font-size: large;
+           font-style: bold;
+		   margin-left: 100%;
+		   margin-top: 30%;
+		   width: 500px;
+}
+
+.panel{
+		   background-image: url('1328123655_699.jpg');
+           font-size: medium;
+           font-style: bold;
+           border-radius: 10px;
+		   box-shadow: 3px 3px 5px 5px;
+		   margin-left: 100%;
+		   margin-top: 0%;
+		   width: 500px;
+}
+
+.ok{
+		   background-color: yellow;
+		   width: 100px;
+		   height: 50px;
+		   border-radius: 30px;
+}
+
+.table{
+		   border: 5px double black;
+}
+
+.error{
+		   background-color: red;
+}

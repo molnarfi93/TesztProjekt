@@ -1,0 +1,29 @@
+<table>
+    <tr>
+        <div class="header">Új tranzakció</div>
+    </tr>
+    <tr>
+		<div class="panel">
+			<form [formGroup]="tranzakcioForm" (ngSubmit)="addTranzakcio()">
+				Feladó: <input type="text" [readonly]="!editable" [value]="{{szam}}" formControlName="felado"><br />
+				<br />
+				Címzett: <input type="text" pattern="[0-9]{8}[-][0-9]{8}[-][0-9]{8}" required formControlName="cimzett"><br />
+				<div class="error" *ngIf="tranzakcioForm.cimzett.errors?.required">Címzett kitöltendö!</div>
+				<div class="error" *ngIf="tranzakcioForm.cimzett.errors?.pattern">Címzett számlaszáma nem megfelelö!</div>
+				<br />
+				Összeg: <input type="number" max="100000" required formControlName="osszeg"><br />
+				<div class="error" *ngIf="tranzakcioForm.osszeg.errors?.required">Összeg kitöltendö!</div>
+				<div class="error" *ngIf="tranzakcioForm.osszeg.errors?.max">Összeg legfeljebb 100000 Ft lehet!</div>
+				<br />
+				Közlemény: <input type="text" maxlength="50" formControlName="kozlemeny"><br />
+				<br />
+				<br />
+				<button type="submit" [disabled]="!tranzakcioForm.valid" class="ok">Tranzakció véglegesítése</button><br />
+			</form>
+			<br />
+			<br />
+			<br />
+			<button (click)="loadSzamla()">Mégsem</button>
+        </div>
+    </tr>
+</table>
